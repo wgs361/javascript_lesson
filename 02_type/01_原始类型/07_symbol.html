@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/assert.css" />
+		<script type="text/javascript" src="../../js/assert.js" ></script>
+	</head>
+	<body>
+		<ul id="results"></ul>
+		
+		<script type="text/javascript">
+			asserts();
+			
+			test("Origin", function() {
+				let rogue = {
+					name : "张三",
+					age : 25,
+				};
+				
+				function buy_bus_ticket(person) {
+					person.is_ticket = true;
+				}
+				
+				function go_bus(person) {
+					if (person.is_ticket) {
+						console.log("发车啦");
+						person.is_ticket = false;
+					}
+				}
+				
+				function go_cinema(person) {
+					if (person.is_ticket) {
+						console.log("看电影");
+						person.is_ticket = false;
+					}
+				}
+				
+				buy_bus_ticket(rogue);
+				go_cinema(rogue);
+			});
+			
+			test("Symbol", function() {
+				let id = Symbol("name");
+	
+				assert(id.toString() === "Symbol(name)", "display");
+	
+				let id_ = Symbol("name");
+				assert(id !== id_, "unique");
+				
+				let isTicket = Symbol("isTicket");
+				let isEmployee = Symbol("isEmployee");
+				let isVip = Symbol("isEmployee");
+				let me = {
+					name : "张三",
+					age : 25,
+					
+					isTicket : true,
+					isEmployee : true,
+				};
+				me.isVip = false;
+				
+				assert(me.isTicket && me.isEmployee && !me.isVip, "object");
+			});
+			
+			test("全局Symbol", function() {
+				let me = Symbol.for("me");
+				assert(me.toString() === "Symbol(me)", "display");
+				
+				let me_ = Symbol.for("me");
+				assert(me_ === me, "not unique");
+				
+				assert(Symbol.keyFor(me) === "me", "keyFor");
+			});
+			
+			test("内置Symbol", function() {
+				assert(Symbol.hasInstance.toString() === 
+					"Symbol(Symbol.hasInstance)", "Symbol.hasInstance");
+				assert(Symbol.isConcatSpreadable.toString() === 
+					"Symbol(Symbol.isConcatSpreadable)", "Symbol.isConcatSpreadable");
+				assert(Symbol.iterator.toString() === 
+					"Symbol(Symbol.iterator)", "Symbol.iterator");
+				assert(Symbol.toPrimitive.toString() === 
+					"Symbol(Symbol.toPrimitive)", "Symbol.toPrimitive");
+			});
+			
+		</script>
+	</body>
+</html>

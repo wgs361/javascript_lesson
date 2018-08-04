@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/assert.css" />
+		<script type="text/javascript" src="../../js/assert.js" ></script>
+	</head>
+	<body>
+		<ul id="results"></ul>
+		
+		<script type="text/javascript">
+			asserts();
+			
+			test("String转换", function() {
+				assert(String(undefined) === "undefined", "undefined");
+				assert(String(null) === "null", "null");
+				
+				assert(String(true) === "true", "true");
+				assert(String(false) === "false", "false");
+				
+				assert(String("") === "", "''");
+				assert(String("12abc") === "12abc", "'12abc'");
+				assert(String("abc") === "abc", "'abc'");		
+
+				assert(String("0") === "0", "'0'");
+				assert(String("+0") === "+0", "'+0'");
+				assert(String("-0") === "-0", "'-0'");
+				assert(String("12") === "12", "'12'");
+				assert(String("012") === "012", "'012'");
+				assert(String("0x12") === "0x12", "'0x12'");
+				assert(String("1.2") === "1.2", "'1.2'");
+				assert(String("Infinity") == 'Infinity', "'Infinity'");
+				assert(String("-12") === "-12", "'-12'");
+				assert(String("-012") === "-012", "'-012'");
+				assert(String("-0x12") === "-0x12", "'-0x12'");
+				assert(String("-1.2") === "-1.2", "'-1.2'");
+				assert(String("-Infinity") == '-Infinity', "'-Infinity'");
+				assert(String("NaN") == 'NaN', "'NaN'");
+				
+				assert(String(0) === "0", "0");
+				assert(String(+0) === "0", "+0");				
+				assert(String(-0) === "0", "-0");
+				assert(String(12) === "12", "12");
+				assert(String(012) === "10", "012");
+				assert(String(0x12) === "18", "0x12");
+				assert(String(1.2) === "1.2", "1.2");
+				assert(String(Infinity) === "Infinity", "Infinity");
+				assert(String(-12) === "-12", "-12");
+				assert(String(-012) === "-10", "-012");
+				assert(String(-0x12) === "-18", "-0x12");
+				assert(String(-1.2) === "-1.2", "-1.2");
+				assert(String(-Infinity) === "-Infinity", "-Infinity");
+				assert(String(NaN) === "NaN", "NaN");
+			});
+
+			test("Number转换", function() {
+				assert(isNaN(Number(undefined)), "undefined");
+				assert(Number(null) === 0, "null");
+				
+				assert(Number(true) === 1, "true");
+				assert(Number(false) === 0, "false");
+				
+				assert(Number("") === 0, "''");
+				assert(isNaN(Number("12abc")), "'12abc'注意");
+				assert(isNaN(Number("abc")), "'abc'");
+				
+				assert(Number("0") === 0, "'0'");
+				assert(Number("-0") === 0, "'-0'");
+				assert(Number("+0") === 0, "'+0'");
+				assert(Number("12") === 12, "'12'");
+				assert(Number("012") === 12, "'012'注意");
+				assert(Number("0x12") === 0x12, "'0x12'");
+				assert(isEqual(Number("1.2"), 1.2), "'1.2'");
+				assert(Number("Infinity") == Infinity, "'Infinity'");
+				assert(Number("-12") === -12, "'-12'");
+				assert(Number("-012") === -12, "'-012'注意");
+				assert(isNaN(Number("-0x12")), "'-0x12'注意");
+				assert(isEqual(Number("-1.2"), -1.2), "'-1.2'");
+				assert(Number("-Infinity") == -Infinity, "'-Infinity'");
+				assert(isNaN(Number("NaN")), "'NaN'");
+				
+				assert(Number(0) === 0, "0");
+				assert(Number(-0) === 0, "-0");
+				assert(Number(+0) === 0, "+0");
+				assert(Number(12) === 12, "12");
+				assert(Number(012) === 012, "012");
+				assert(Number(0x12) === 0x12, "0x12");
+				assert(isEqual(Number(1.2), 1.2), "1.2");
+				assert(Number(Infinity) === Infinity, "Infinity");
+				assert(Number(-12) === -12, "-12");
+				assert(Number(-012) === -012, "-012");
+				assert(Number(-0x12) === -0x12, "-0x12");
+				assert(isEqual(Number(-1.2), -1.2), "-1.2");
+				assert(Number(-Infinity) === -Infinity, "-Infinity");
+				assert(isNaN(Number(NaN)), "NaN");
+			});
+
+		</script>
+	</body>
+</html>

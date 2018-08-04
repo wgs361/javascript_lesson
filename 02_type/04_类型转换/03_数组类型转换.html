@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/assert.css" />
+		<script type="text/javascript" src="../../js/assert.js" ></script>
+	</head>
+	<body>
+		<ul id="results"></ul>
+		
+		<script type="text/javascript">
+			asserts();
+			
+			log(([]).toString());
+			log(([]).valueOf());
+			log(([1]).toString());
+			log(([1]).valueOf());
+			log(([1.2]).toString());
+			log(([1.2]).valueOf());
+			log(([1, 2]).toString());
+			log(([1, 2]).valueOf());
+			
+			test("String转换", function() {
+				assert(String([]) === "", "[]");
+				assert(String(["abc"]) === "abc", "['abc']");
+				assert(String([12]) === "12", "[12]");
+				assert(String([3.14]) === "3.14", "[3.14]");
+				assert(String([1, 2]) === "1,2", "[1, 2]");
+				assert(String([1.1, 2.1]) === "1.1,2.1", "[1.1, 2.1]");
+				assert(String(["ab", "cd"]) === "ab,cd", "['ab', 'cd']");
+			});
+			
+			test("Number转换", function() {
+				assert(Number([]) === 0, "[]");
+				assert(isNaN(Number(["abc"])), "['abc']");
+				assert(Number([12]) === 12, "[12]");
+				assert(isEqual(Number([3.14]), 3.14), "[3.14]");
+				assert(isNaN(Number([1, 2])), "[1, 2]");
+				assert(isNaN(Number([1.1, 2.1])), "[1.1, 2.1]");
+				assert(isNaN(Number(["ab", "cd"])), "['ab', 'cd']");
+			});
+			
+			test("Boolean转换", function() {
+				assert(Boolean([]) === true, "[]");
+				assert(Boolean(["abc"]) === true, "['abc']");
+				assert(Boolean([12]) === true, "[12]");
+				assert(Boolean([3.14]) === true, "[3.14]");
+				assert(Boolean([1, 2]) === true, "[1, 2]");
+				assert(Boolean([1.1, 2.1]) === true, "[1.1, 2.1]");
+				assert(Boolean(["ab", "cd"]) === true, "['ab', 'cd']");
+			});
+		</script>
+	</body>
+</html>

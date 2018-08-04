@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/assert.css" />
+		<script type="text/javascript" src="../../js/assert.js" ></script>
+	</head>
+	<body>
+		<ul id="results"></ul>
+		
+		<script type="text/javascript">
+			asserts();
+
+			test("Boolean false", function() {
+				assert(Boolean(undefined) === false, "undefined");
+				assert(Boolean(null) === false, "null");
+				
+				assert(Boolean(false) === false, "false");
+				
+				assert(Boolean("") === false, "''");
+				
+				assert(Boolean(0) === false, "0");
+				assert(Boolean(+0) === false, "+0");
+				assert(Boolean(-0) === false, "-0");
+				assert(Boolean(0.0) === false, "0.0");
+				assert(Boolean(0.0000000000) === false, "0.0000000000");
+				assert(Boolean(1e-400) === false, "1e-400");
+				
+				assert(Boolean(NaN) === false, "NaN");
+			});
+
+			test("Boolean转换", function() {
+				assert(Boolean(undefined) === false, "undefined");
+				assert(Boolean(null) === false, "null");
+				
+				assert(Boolean(true) === true, "true");
+				assert(Boolean(false) === false, "false");
+				
+				assert(Boolean("") === false, "''");
+				assert(Boolean("12abc") === true, "'12abc'");
+				assert(Boolean("abc") === true, "'abc'");
+				
+				assert(Boolean("0") === true, "'0'");
+				assert(Boolean("+0") === true, "'+0'");
+				assert(Boolean("-0") === true, "'-0'");
+				assert(Boolean("12") === true, "'12'");
+				assert(Boolean("012") === true, "'012'");
+				assert(Boolean("0x12") === true, "'0x12'");
+				assert(Boolean("1.2") === true, "'1.2'");
+				assert(Boolean("Infinity") === true, "'Infinity'");
+				assert(Boolean("-12") === true, "'-12'");
+				assert(Boolean("-012") === true, "'-012'");
+				assert(Boolean("-0x12") === true, "'-0x12'");
+				assert(Boolean("-1.2") === true, "'-1.2'");
+				assert(Boolean("-Infinity") === true, "'-Infinity'");
+				assert(Boolean("NaN") === true, "'NaN'");
+				
+				assert(Boolean(0) === false, "0");
+				assert(Boolean(+0) === false, "+0");
+				assert(Boolean(-0) === false, "-0");
+				assert(Boolean(12) === true, "12");
+				assert(Boolean(012) === true, "012");
+				assert(Boolean(0x12) === true, "0x12");
+				assert(Boolean(1.2) === true, "1.2");
+				assert(Boolean(Infinity) === true, "Infinity");
+				assert(Boolean(-12) === true, "-12");
+				assert(Boolean(-012) === true, "-012");
+				assert(Boolean(-0x12) === true, "-0x12");
+				assert(Boolean(-1.2) === true, "-1.2");
+				assert(Boolean(-Infinity) === true, "-Infinity");
+				assert(Boolean(NaN) === false, "NaN");
+			});
+		</script>
+	</body>
+</html>

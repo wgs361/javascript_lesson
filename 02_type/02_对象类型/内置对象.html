@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/assert.css" />
+		<script type="text/javascript" src="../../js/assert.js" ></script>
+	</head>
+	<body>
+		<ul id="results"></ul>
+		
+		<script type="text/javascript">
+			var obj = {
+				name : "wgs",
+				age : 18
+			};
+			assert(obj.name === "wgs" && obj.age === 18, "Object");
+			
+			var arr = [1, 2, 3];
+			assert(arr.length === 3, "Array");
+			
+			var fun = function add(a, b)
+			{
+				return a + b;
+			}
+			assert(fun(2, 3) === 5, "Function");
+			
+			var reg = /abc/i;
+			assert("Abc".replace(reg, "xyz") === "xyz", "RegExp");
+			
+			var date = new Date("2016-12-17");
+			log([date.getYear(), date.getMonth(), date.getDate()]);
+			assert(date.getYear() === 2016 - 1900 && date.getMonth() === 11 && date.getDate() === 17, "Date");
+						
+		</script>
+	</body>
+</html>

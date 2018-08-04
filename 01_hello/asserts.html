@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/assert.css" />
+		<script type="text/javascript" src="../js/assert.js" ></script>		
+	</head>
+	<body>
+		<ul id="results" />
+
+		<script type="text/javascript">
+			asserts();
+			
+			test("A test.", function() {
+				assert(true, "First assertion completed.");
+				assert(true, "Second assertion completed.");
+				assert(true, "Third assertion completed.");
+			});
+			
+			test("B test.", function() {
+				assert(true, "First assertion completed.");
+				assert(false, "Second assertion failed.");
+				assert(true, "Third assertion completed.");
+			});
+			
+			test("C test.", function() {
+				assert(null, "fail.");
+				assert(5, "pass.");
+			});
+		</script>		
+	</body>
+</html>

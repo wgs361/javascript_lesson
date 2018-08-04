@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/assert.css" />
+		<script type="text/javascript" src="../../js/assert.js" ></script>
+	</head>
+	<body>
+		<ul id="results"></ul>
+		
+		<script type="text/javascript">
+			asserts();
+			
+			test("字符串字面量", function() {
+				assert("abc" === "abc", "'abc'");
+				assert('abc' === "abc", "'abc'");
+			});
+			
+			test("转义字符", function() {
+				assert("a\nb" === "a\nb", "\\n");
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/assert.css" />
+		<script type="text/javascript" src="../../js/assert.js" ></script>
+	</head>
+	<body>
+		<ul id="results"></ul>
+		
+		<script type="text/javascript">
+			asserts();
+			
+			var obj = {};
+			test("Object转换", function() {
+				assert(String(obj) === "[object Object]", "string");
+				assert(isNaN(Number(obj)), "number");
+				assert(Boolean(obj) === true, "boolean");
+			});
+			
+			var numObj = {
+				valueOf : function() {
+					return 1.2;
+				},
+				
+				toString : function() {
+					return "numObj";
+				}
+			}
+			
+			test("numObj转换", function() {
+				assert(String(numObj) === "numObj", "string");
+				assert(isEqual(Number(numObj), 1.2), "number");
+				assert(Boolean(numObj) === true, "boolean");
+			});
+			
+			var strObj = {
+				valueOf : function() {
+					return "abc";
+				},
+				
+				toString : function() {
+					return "strObj";
+				}
+			}
+			
+			test("strObj转换", function() {
+				assert(String(strObj) === "strObj", "string");
+				assert(isNaN(Number(strObj)), "number");
+				assert(Boolean(strObj) === true, "boolean");
+			});
+			
+		</script>
+	</body>
+</html>

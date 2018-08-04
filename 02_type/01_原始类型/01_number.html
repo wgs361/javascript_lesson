@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/assert.css" />
+		<script type="text/javascript" src="../../js/assert.js" ></script>
+	</head>
+	<body>
+		<ul id="results"></ul>
+		
+		<script type="text/javascript">
+			asserts();
+			
+			test("整数字面量", function() {
+				assert(12 === 12, "十进制");
+				assert(012 === 10, "八进制");
+				assert(0x12 === 18, "十六进制");
+			});
+			
+			test("浮点数字面量", function() {
+				assert(_floatEqual(3.14, 3.1400000001), "浮点数");
+				assert(_floatEqual(3.1415e2, 314.1500000001), "科学计数法");
+				
+				assert(_floatEqual(.42, 0.42), ".42不推荐");
+				assert(_floatEqual(42., 42.0), "42.不推荐");
+			});	
+			
+			test("特殊数字", function() {
+				assert(NaN !== NaN, "NaN");
+				assert(Infinity === Infinity, "Infinity");
+				assert(-Infinity === -Infinity, "-Infinity");
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/assert.css" />
+		<script type="text/javascript" src="../../js/assert.js" ></script>
+	</head>
+	<body>
+		<ul id="results"></ul>
+		
+		<script type="text/javascript">
+			assert(null === null, "null");
+			assert(undefined === undefined, "undefined");
+			assert(0 === +0, "+0");
+			assert(0 === -0, "-0");
+			assert(+0 === -0, "-0");
+			assert(1 === 1, "整数");
+			assert(NaN !== NaN, "NaN");
+			assert(Infinity === Infinity, "Infinity");
+			assert(-Infinity === -Infinity, "-Infinity");
+			assert(_floatEqual(3.14, 3.14000000000001), "浮点数");
+			assert(true === true, "true");
+			assert(false === false, "false");
+			assert("abc" === "abc", "'abc'");
+		</script>
+	</body>
+</html>
